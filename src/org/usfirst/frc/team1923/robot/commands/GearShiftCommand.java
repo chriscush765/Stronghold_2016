@@ -26,8 +26,9 @@ public class GearShiftCommand extends Command {
 	protected void initialize() {
 		if(shiftUp)
 			Robot.gearSubsystem.shiftUp();
-		else
+		else if(Robot.gearSubsystem.safeToShift()){
 			Robot.gearSubsystem.shiftDown();
+		}
 	}
 
 	// Called repeatedly when this Command is scheduled to run
